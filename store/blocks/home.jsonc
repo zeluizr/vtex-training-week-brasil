@@ -1,52 +1,53 @@
 {
   "store.home": {
-    "blocks": [
-      "responsive-layout.desktop#desktop",
-      "responsive-layout.mobile#mobile"
-    ]
+    "blocks": ["tab-layout#home"]
   },
-  "responsive-layout.desktop#desktop": {
-    "children": ["rich-text#desktop", "image#desktop"]
+  "tab-layout#home": {
+    "children": ["tab-list#home", "tab-content#home"]
   },
-
-  "responsive-layout.mobile#mobile": {
-    "children": ["rich-text#mobile", "image#mobile"]
+  "tab-list#home": {
+    "children": ["tab-list.item#home1", "tab-list.item#home2"]
   },
-  "image#desktop": {
+  "tab-list.item#home1": {
     "props": {
-      "src": "https://appliancetheme.vteximg.com.br/arquivos/Responsive-Image-Desktop.jpg?q=1",
-      "maxWidth": "100%",
-      "link": {
-        "url": "/small-appliances/coffee-makers"
-      },
-      "alt": "Coffee Makers Collection"
+      "tabId": "majorAppliances",
+      "label": "Major Appliances",
+      "defaultActiveTab": true
     }
   },
-
-  "image#mobile": {
+  "tab-list.item#home2": {
     "props": {
-      "src": "https://appliancetheme.vteximg.com.br/arquivos/Responsive-Image-Mobile.jpg?q=1",
-      "maxWidth": "100%",
-      "link": {
-        "url": "/small-appliances/coffee-makers"
-      },
-      "alt": "Coffee Makers Collection"
+      "label": "Electronics",
+      "tabId": "electronics"
     }
   },
-
-  "rich-text#desktop": {
+  "tab-content#home": {
+    "children": ["tab-content.item#home1", "tab-content.item#home2"]
+  },
+  "tab-content.item#home1": {
+    "children": ["rich-text#home1"],
     "props": {
-      "text": "# Your Coffee, Your Way \n ### New Coffee Makers Collection",
+      "tabId": "majorAppliances"
+    }
+  },
+  "tab-content.item#home2": {
+    "children": ["rich-text#home2"],
+    "props": {
+      "tabId": "electronics"
+    }
+  },
+  "rich-text#home1": {
+    "props": {
+      "text": "Área do conteúdo da tab-list.item com  tabId = majorAppliances",
       "textPosition": "CENTER",
-      "textAlignment": "CENTER"
+      "font": "t-heading-3"
     }
   },
-
-  "rich-text#mobile": {
+  "rich-text#home2": {
     "props": {
-      "text": "### Your Coffee, Your Way \n #### New Coffee Makers Collection",
+      "text": "Área do conteúdo da tab-list.item com  tabId = electronics",
       "textPosition": "CENTER",
-      "textAlignment": "CENTER"
+      "font": "t-heading-3"
     }
   }
 }
